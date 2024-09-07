@@ -29,6 +29,9 @@ def evaluar_proposicion(proposicion, valores_verdad):
         elif proposicion[i:i+2] == '->':
             nueva_proposicion += ' <= '
             i += 1  # Saltar el siguiente carácter '>'
+        elif proposicion[i:i+3] == '<->':
+            nueva_proposicion += ' == '
+            i += 2  # Saltar los siguientes dos caracteres '->'
         else:
             nueva_proposicion += proposicion[i]
         i += 1
@@ -58,5 +61,5 @@ equivalentes, valores_verdad = verificar_equivalencia(proposicion1, proposicion2
 if equivalentes:
     print("\nLas proposiciones son equivalentes :)")
 else:
-    print("\nLas proposiciones no son equivalentes :( )")
+    print("\nLas proposiciones no son equivalentes :( ")
     print(f"Diferencia encontrada con los valores de verdad: {valores_verdad}")
